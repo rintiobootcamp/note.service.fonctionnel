@@ -32,6 +32,7 @@ public class NoteController {
     @RequestMapping(method = RequestMethod.POST, value = "/")
     @ApiVersions({"1.0"})
     @ApiOperation(value = "Create a new note", notes = "Create a new note")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<Integer> create(@RequestBody @Valid Note note) {
 
         HttpStatus httpStatus = null;
@@ -49,6 +50,7 @@ public class NoteController {
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     @ApiVersions({"1.0"})
     @ApiOperation(value = "Read a notes", notes = "Read a notes")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<Note> read(@PathVariable(name = "id") int id) {
 
         Note note = new Note();
@@ -68,6 +70,7 @@ public class NoteController {
     @RequestMapping(method = RequestMethod.GET, value = "/{entityType}/{entityId}")
     @ApiVersions({"1.0"})
     @ApiOperation(value = "Get all notes of an entity", notes = "Get all notes of an entity")
+    @CrossOrigin(origins = "*")
     public ResponseEntity<NoteWS> readByEntity(@PathVariable("entityId") int entityId, @PathVariable("entityType") String entityType) {
         EntityType entite = EntityType.valueOf(entityType);
         NoteWS noteWS = new NoteWS();

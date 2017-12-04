@@ -19,8 +19,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @RestController("NoteController")
-@RequestMapping("/note")
+@RequestMapping("/notes")
 @Api(value = "Note API", description = "Note API")
+@CrossOrigin(origins = "*")
 public class NoteController {
 
     @Autowired
@@ -32,7 +33,7 @@ public class NoteController {
     @RequestMapping(method = RequestMethod.POST, value = "/")
     @ApiVersions({"1.0"})
     @ApiOperation(value = "Create a new note", notes = "Create a new note")
-    @CrossOrigin(origins = "*")
+//    @CrossOrigin(origins = "*")
     public ResponseEntity<Integer> create(@RequestBody @Valid Note note) {
 
         HttpStatus httpStatus = null;
@@ -49,7 +50,7 @@ public class NoteController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     @ApiVersions({"1.0"})
-    @ApiOperation(value = "Read a notes", notes = "Read a notes")
+    @ApiOperation(value = "Read a notes", notes = "Read a note")
     @CrossOrigin(origins = "*")
     public ResponseEntity<Note> read(@PathVariable(name = "id") int id) {
 

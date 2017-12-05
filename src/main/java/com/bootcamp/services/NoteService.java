@@ -9,6 +9,7 @@ import com.bootcamp.commons.models.Rule;
 import com.bootcamp.commons.ws.usecases.pivotone.NoteWS;
 import com.bootcamp.crud.NoteCRUD;
 import com.bootcamp.entities.Note;
+//import org.eclipse.persistence.internal.helper.Helper;
 import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
@@ -21,11 +22,13 @@ import java.util.List;
 public class NoteService implements DatabaseConstants {
 
     public int create(Note note) throws SQLException {
+        note.setDateCreation(System.currentTimeMillis());
         NoteCRUD.create(note);
         return note.getId();
     }
 
     public int update(Note note) throws SQLException {
+        note.setDateCreation(System.currentTimeMillis());
         NoteCRUD.update(note);
         return note.getId();
     }

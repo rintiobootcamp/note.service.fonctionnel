@@ -30,7 +30,7 @@ public class NoteController {
     @Autowired
     HttpServletRequest request;
 
-    @RequestMapping(method = RequestMethod.POST, value = "/")
+    @RequestMapping(method = RequestMethod.POST)
     @ApiVersions({"1.0"})
     @ApiOperation(value = "Create a new note", notes = "Create a new note")
 //    @CrossOrigin(origins = "*")

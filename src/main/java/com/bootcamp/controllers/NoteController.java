@@ -48,7 +48,7 @@ public class NoteController {
         return new ResponseEntity<Integer>(id, httpStatus);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/{id}")
+   /* @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     @ApiVersions({"1.0"})
     @ApiOperation(value = "Read a notes", notes = "Read a note")
     @CrossOrigin(origins = "*")
@@ -66,7 +66,7 @@ public class NoteController {
         }
 
         return new ResponseEntity<Note>(note, httpStatus);
-    }
+    }*/
 
     @RequestMapping(method = RequestMethod.GET, value = "/{entityType}/{entityId}")
     @ApiVersions({"1.0"})

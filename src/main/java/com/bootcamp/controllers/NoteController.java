@@ -43,19 +43,9 @@ public class NoteController {
     @RequestMapping(method = RequestMethod.POST)
     @ApiVersions({"1.0"})
     @ApiOperation(value = "Create a new note", notes = "Create a new note")
-//    @CrossOrigin(origins = "*")
-    public ResponseEntity<Integer> create(@RequestBody @Valid Note note) {
-
-        HttpStatus httpStatus = null;
-
-        int id = -1;
-        try {
-            id = noteService.create(note);
-            httpStatus = HttpStatus.OK;
-        } catch (SQLException ex) {
-            Logger.getLogger(NoteController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return new ResponseEntity<Integer>(id, httpStatus);
+    public ResponseEntity<Note> create(@RequestBody @Valid Note note) throws Exception {
+            Note noter = noteService.create( note );
+        return new ResponseEntity<>(noter, HttpStatus.OK);
     }
 
     /**

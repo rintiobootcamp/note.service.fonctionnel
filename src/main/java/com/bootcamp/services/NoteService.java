@@ -28,10 +28,10 @@ public class NoteService implements DatabaseConstants {
      * @return the note id
      * @throws SQLException
      */
-    public int create(Note note) throws SQLException {
+    public Note create(Note note) throws SQLException {
         note.setDateCreation(System.currentTimeMillis());
         NoteCRUD.create(note);
-        return note.getId();
+        return note;
     }
 
     /**

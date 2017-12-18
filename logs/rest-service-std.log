@@ -1,0 +1,225 @@
+[32m2017-12-18 07:49:02.909 WAT [main] c.b.a.Application INFO : Starting Application on itbrain with PID 3451 (/home/ibrahim/release4/note.service.fonctionnel/target/classes started by ibrahim in /home/ibrahim/release4/note.service.fonctionnel)
+[m[32m2017-12-18 07:49:02.910 WAT [main] c.b.a.Application DEBUG: Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+[m[32m2017-12-18 07:49:02.910 WAT [main] c.b.a.Application INFO : No active profile set, falling back to default profiles: default
+[m[32m2017-12-18 07:49:03.614 WAT [main] o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext INFO : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@dc694d2: startup date [Mon Dec 18 07:49:03 WAT 2017]; root of context hierarchy
+[m[32m2017-12-18 07:49:06.447 WAT [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker INFO : Bean 'org.springframework.cache.annotation.ProxyCachingConfiguration' of type [org.springframework.cache.annotation.ProxyCachingConfiguration$$EnhancerBySpringCGLIB$$faab8c4d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[m[32m2017-12-18 07:49:06.484 WAT [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker INFO : Bean 'org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration' of type [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration$$EnhancerBySpringCGLIB$$ef1f50f1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[m[32m2017-12-18 07:49:06.669 WAT [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker INFO : Bean 'spring.cache-org.springframework.boot.autoconfigure.cache.CacheProperties' of type [org.springframework.boot.autoconfigure.cache.CacheProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[m[32m2017-12-18 07:49:06.684 WAT [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker INFO : Bean 'cacheManagerCustomizers' of type [org.springframework.boot.autoconfigure.cache.CacheManagerCustomizers] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[m[32m2017-12-18 07:49:06.688 WAT [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker INFO : Bean 'org.springframework.boot.autoconfigure.cache.SimpleCacheConfiguration' of type [org.springframework.boot.autoconfigure.cache.SimpleCacheConfiguration$$EnhancerBySpringCGLIB$$90bac3d2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[m[32m2017-12-18 07:49:06.700 WAT [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker INFO : Bean 'cacheManager' of type [org.springframework.cache.concurrent.ConcurrentMapCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[m[32m2017-12-18 07:49:06.701 WAT [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker INFO : Bean 'cacheAutoConfigurationValidator' of type [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration$CacheManagerValidator] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[m[32m2017-12-18 07:49:07.550 WAT [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer INFO : Tomcat initialized with port(s): 8084 (http)
+[m[32m2017-12-18 07:49:07.805 WAT [localhost-startStop-1] o.s.w.c.ContextLoader INFO : Root WebApplicationContext: initialization completed in 4191 ms
+[m[32m2017-12-18 07:49:08.144 WAT [localhost-startStop-1] o.s.b.w.s.ServletRegistrationBean INFO : Mapping servlet: 'dispatcherServlet' to [/]
+[m[32m2017-12-18 07:49:08.150 WAT [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean INFO : Mapping filter: 'metricsFilter' to: [/*]
+[m[32m2017-12-18 07:49:08.150 WAT [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean INFO : Mapping filter: 'characterEncodingFilter' to: [/*]
+[m[32m2017-12-18 07:49:08.150 WAT [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean INFO : Mapping filter: 'webRequestLoggingFilter' to: [/*]
+[m[32m2017-12-18 07:49:08.150 WAT [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean INFO : Mapping filter: 'applicationContextIdFilter' to: [/*]
+[m[32m2017-12-18 07:49:09.491 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/]}" onto public java.lang.String com.bootcamp.controllers.HomeController.index()
+[m[32m2017-12-18 07:49:09.501 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/notes/{entityType}/{entityId}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.bootcamp.commons.ws.usecases.pivotone.NoteWS> com.bootcamp.controllers.NoteController.readByEntity(int,java.lang.String)
+[m[32m2017-12-18 07:49:09.502 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/notes/{id}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.bootcamp.entities.Note> com.bootcamp.controllers.NoteController.read(int)
+[m[32m2017-12-18 07:49:09.503 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/notes],methods=[POST]}" onto public org.springframework.http.ResponseEntity<java.lang.Integer> com.bootcamp.controllers.NoteController.create(com.bootcamp.entities.Note)
+[m[32m2017-12-18 07:49:09.505 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+[m[32m2017-12-18 07:49:09.514 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+[m[32m2017-12-18 07:49:09.515 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+[m[32m2017-12-18 07:49:09.517 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+[m[32m2017-12-18 07:49:09.528 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[m[32m2017-12-18 07:49:09.529 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[m[32m2017-12-18 07:49:10.116 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/info || /info.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 07:49:10.118 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+[m[32m2017-12-18 07:49:10.119 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/env || /env.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 07:49:10.120 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 07:49:10.125 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 07:49:10.129 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/loggers/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.get(java.lang.String)
+[m[32m2017-12-18 07:49:10.130 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/loggers/{name:.*}],methods=[POST],consumes=[application/vnd.spring-boot.actuator.v1+json || application/json],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.set(java.lang.String,java.util.Map<java.lang.String, java.lang.String>)
+[m[32m2017-12-18 07:49:10.130 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/loggers || /loggers.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 07:49:10.132 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/auditevents || /auditevents.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.boot.actuate.endpoint.mvc.AuditEventsMvcEndpoint.findByPrincipalAndAfterAndType(java.lang.String,java.util.Date,java.lang.String)
+[m[32m2017-12-18 07:49:10.133 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 07:49:10.135 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+[m[32m2017-12-18 07:49:10.137 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 07:49:10.139 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+[m[32m2017-12-18 07:49:10.139 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 07:49:10.140 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 07:49:10.144 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/health || /health.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,java.security.Principal)
+[m[32m2017-12-18 07:49:10.145 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 07:49:10.701 WAT [main] o.s.w.s.h.SimpleUrlHandlerMapping INFO : Mapped URL path [/swagger-ui.html] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[m[32m2017-12-18 07:49:10.702 WAT [main] o.s.w.s.h.SimpleUrlHandlerMapping INFO : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[m[32m2017-12-18 07:49:10.817 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter INFO : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@dc694d2: startup date [Mon Dec 18 07:49:03 WAT 2017]; root of context hierarchy
+[m[33m2017-12-18 07:49:12.136 WAT [main] o.s.b.a.t.AbstractTemplateResolverConfiguration WARN : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+[m[32m2017-12-18 07:49:12.360 WAT [main] o.s.j.e.a.AnnotationMBeanExporter INFO : Registering beans for JMX exposure on startup
+[m[32m2017-12-18 07:49:12.372 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Registering beans for JMX exposure on startup
+[m[32m2017-12-18 07:49:12.398 WAT [main] o.s.c.s.DefaultLifecycleProcessor INFO : Starting beans in phase 0
+[m[32m2017-12-18 07:49:12.402 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'auditEventsEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=auditEventsEndpoint]
+[m[32m2017-12-18 07:49:12.433 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'requestMappingEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=requestMappingEndpoint]
+[m[32m2017-12-18 07:49:12.457 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'environmentEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=environmentEndpoint]
+[m[32m2017-12-18 07:49:12.468 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'healthEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=healthEndpoint]
+[m[32m2017-12-18 07:49:12.475 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'beansEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=beansEndpoint]
+[m[32m2017-12-18 07:49:12.483 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'infoEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=infoEndpoint]
+[m[32m2017-12-18 07:49:12.490 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'loggersEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=loggersEndpoint]
+[m[32m2017-12-18 07:49:12.521 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'metricsEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=metricsEndpoint]
+[m[32m2017-12-18 07:49:12.528 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'traceEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=traceEndpoint]
+[m[32m2017-12-18 07:49:12.535 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'dumpEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=dumpEndpoint]
+[m[32m2017-12-18 07:49:12.542 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'autoConfigurationReportEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=autoConfigurationReportEndpoint]
+[m[32m2017-12-18 07:49:12.548 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'configurationPropertiesReportEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=configurationPropertiesReportEndpoint]
+[m[32m2017-12-18 07:49:12.553 WAT [main] o.s.c.s.DefaultLifecycleProcessor INFO : Starting beans in phase 2147483647
+[m[32m2017-12-18 07:49:13.198 WAT [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer INFO : Tomcat started on port(s): 8084 (http)
+[m[32m2017-12-18 07:49:13.211 WAT [main] c.b.a.Application INFO : Started Application in 12.739 seconds (JVM running for 33.813)
+[m[32m2017-12-18 07:52:09.036 WAT [main] c.b.i.NoteControllerIntegrationTest DEBUG: {
+    "timestamp": 1513579928964,
+    "status": 405,
+    "error": "Method Not Allowed",
+    "exception": "org.springframework.web.HttpRequestMethodNotSupportedException",
+    "message": "Request method 'PUT' not supported",
+    "path": "/note/notes"
+}
+[m[32m2017-12-18 07:52:09.124 WAT [main] c.b.i.NoteControllerIntegrationTest DEBUG: {
+    "timestamp": 1513579929117,
+    "status": 405,
+    "error": "Method Not Allowed",
+    "exception": "org.springframework.web.HttpReques[33m2017-12-18 07:52:10.015 WAT [http-nio-8084-exec-5] o.s.w.s.PageNotFound WARN : Request method 'DELETE' not supported
+[m[32m2017-12-18 08:17:08.135 WAT [Thread-3] o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext INFO : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@dc694d2: startup date [Mon Dec 18 07:49:03 WAT 2017]; root of context hierarchy
+[m[32m2017-12-18 08:17:08.139 WAT [Thread-3] o.s.c.s.DefaultLifecycleProcessor INFO : Stopping beans in phase 2147483647
+[m[32m2017-12-18 08:17:08.151 WAT [Thread-3] o.s.c.s.DefaultLifecycleProcessor INFO : Stopping beans in phase 0
+[m[32m2017-12-18 08:17:08.152 WAT [Thread-3] o.s.b.a.e.j.EndpointMBeanExporter INFO : Unregistering JMX-exposed beans on shutdown
+[m[32m2017-12-18 08:17:08.153 WAT [Thread-3] o.s.b.a.e.j.EndpointMBeanExporter INFO : Unregistering JMX-exposed beans
+[m[32m2017-12-18 08:17:08.155 WAT [Thread-3] o.s.j.e.a.AnnotationMBeanExporter INFO : Unregistering JMX-exposed beans on shutdown
+[m[32m2017-12-18 08:17:40.493 WAT [main] c.b.a.Application INFO : Starting Application on itbrain with PID 4157 (/home/ibrahim/release4/note.service.fonctionnel/target/classes started by ibrahim in /home/ibrahim/release4/note.service.fonctionnel)
+[m[32m2017-12-18 08:17:40.518 WAT [main] c.b.a.Application DEBUG: Running with Spring Boot v1.5.8.RELEASE, Spring v4.3.12.RELEASE
+[m[32m2017-12-18 08:17:40.519 WAT [main] c.b.a.Application INFO : No active profile set, falling back to default profiles: default
+[m[32m2017-12-18 08:17:41.136 WAT [main] o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext INFO : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6ffb06b5: startup date [Mon Dec 18 08:17:41 WAT 2017]; root of context hierarchy
+[m[32m2017-12-18 08:17:44.551 WAT [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker INFO : Bean 'org.springframework.cache.annotation.ProxyCachingConfiguration' of type [org.springframework.cache.annotation.ProxyCachingConfiguration$$EnhancerBySpringCGLIB$$36178447] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[m[32m2017-12-18 08:17:44.588 WAT [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker INFO : Bean 'org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration' of type [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration$$EnhancerBySpringCGLIB$$2a8b48eb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[m[32m2017-12-18 08:17:45.024 WAT [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker INFO : Bean 'spring.cache-org.springframework.boot.autoconfigure.cache.CacheProperties' of type [org.springframework.boot.autoconfigure.cache.CacheProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[m[32m2017-12-18 08:17:45.042 WAT [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker INFO : Bean 'cacheManagerCustomizers' of type [org.springframework.boot.autoconfigure.cache.CacheManagerCustomizers] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[m[32m2017-12-18 08:17:45.048 WAT [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker INFO : Bean 'org.springframework.boot.autoconfigure.cache.SimpleCacheConfiguration' of type [org.springframework.boot.autoconfigure.cache.SimpleCacheConfiguration$$EnhancerBySpringCGLIB$$cc26bbcc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[m[32m2017-12-18 08:17:45.060 WAT [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker INFO : Bean 'cacheManager' of type [org.springframework.cache.concurrent.ConcurrentMapCacheManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[m[32m2017-12-18 08:17:45.061 WAT [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker INFO : Bean 'cacheAutoConfigurationValidator' of type [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration$CacheManagerValidator] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[m[32m2017-12-18 08:17:46.264 WAT [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer INFO : Tomcat initialized with port(s): 8084 (http)
+[m[32m2017-12-18 08:17:46.501 WAT [localhost-startStop-1] o.s.w.c.ContextLoader INFO : Root WebApplicationContext: initialization completed in 5366 ms
+[m[32m2017-12-18 08:17:46.882 WAT [localhost-startStop-1] o.s.b.w.s.ServletRegistrationBean INFO : Mapping servlet: 'dispatcherServlet' to [/]
+[m[32m2017-12-18 08:17:46.887 WAT [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean INFO : Mapping filter: 'metricsFilter' to: [/*]
+[m[32m2017-12-18 08:17:46.888 WAT [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean INFO : Mapping filter: 'characterEncodingFilter' to: [/*]
+[m[32m2017-12-18 08:17:46.888 WAT [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean INFO : Mapping filter: 'webRequestLoggingFilter' to: [/*]
+[m[32m2017-12-18 08:17:46.888 WAT [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean INFO : Mapping filter: 'applicationContextIdFilter' to: [/*]
+[m[32m2017-12-18 08:17:47.838 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/]}" onto public java.lang.String com.bootcamp.controllers.HomeController.index()
+[m[32m2017-12-18 08:17:47.847 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/notes/{entityType}/{entityId}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.bootcamp.commons.ws.usecases.pivotone.NoteWS> com.bootcamp.controllers.NoteController.readByEntity(int,java.lang.String)
+[m[32m2017-12-18 08:17:47.848 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/notes/{id}],methods=[GET]}" onto public org.springframework.http.ResponseEntity<com.bootcamp.entities.Note> com.bootcamp.controllers.NoteController.read(int)
+[m[32m2017-12-18 08:17:47.849 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/notes],methods=[POST]}" onto public org.springframework.http.ResponseEntity<com.bootcamp.entities.Note> com.bootcamp.controllers.NoteController.create(com.bootcamp.entities.Note) throws java.lang.Exception
+[m[32m2017-12-18 08:17:47.851 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+[m[32m2017-12-18 08:17:47.858 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+[m[32m2017-12-18 08:17:47.859 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+[m[32m2017-12-18 08:17:47.861 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+[m[32m2017-12-18 08:17:47.871 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+[m[32m2017-12-18 08:17:47.871 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerMapping INFO : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+[m[32m2017-12-18 08:17:48.414 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 08:17:48.416 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 08:17:48.417 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 08:17:48.422 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+[m[32m2017-12-18 08:17:48.423 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 08:17:48.424 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+[m[32m2017-12-18 08:17:48.426 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+[m[32m2017-12-18 08:17:48.427 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/env || /env.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 08:17:48.428 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/auditevents || /auditevents.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.boot.actuate.endpoint.mvc.AuditEventsMvcEndpoint.findByPrincipalAndAfterAndType(java.lang.String,java.util.Date,java.lang.String)
+[m[32m2017-12-18 08:17:48.430 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/info || /info.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 08:17:48.434 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/loggers/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.get(java.lang.String)
+[m[32m2017-12-18 08:17:48.435 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/loggers/{name:.*}],methods=[POST],consumes=[application/vnd.spring-boot.actuator.v1+json || application/json],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.set(java.lang.String,java.util.Map<java.lang.String, java.lang.String>)
+[m[32m2017-12-18 08:17:48.435 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/loggers || /loggers.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 08:17:48.437 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 08:17:48.438 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 08:17:48.439 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/health || /health.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,java.security.Principal)
+[m[32m2017-12-18 08:17:48.440 WAT [main] o.s.b.a.e.m.EndpointHandlerMapping INFO : Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+[m[32m2017-12-18 08:17:48.984 WAT [main] o.s.w.s.h.SimpleUrlHandlerMapping INFO : Mapped URL path [/swagger-ui.html] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[m[32m2017-12-18 08:17:48.985 WAT [main] o.s.w.s.h.SimpleUrlHandlerMapping INFO : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[m[32m2017-12-18 08:17:49.106 WAT [main] o.s.w.s.m.m.a.RequestMappingHandlerAdapter INFO : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6ffb06b5: startup date [Mon Dec 18 08:17:41 WAT 2017]; root of context hierarchy
+[m[33m2017-12-18 08:17:50.554 WAT [main] o.s.b.a.t.AbstractTemplateResolverConfiguration WARN : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+[m[32m2017-12-18 08:17:50.784 WAT [main] o.s.j.e.a.AnnotationMBeanExporter INFO : Registering beans for JMX exposure on startup
+[m[32m2017-12-18 08:17:50.797 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Registering beans for JMX exposure on startup
+[m[32m2017-12-18 08:17:50.807 WAT [main] o.s.c.s.DefaultLifecycleProcessor INFO : Starting beans in phase 0
+[m[32m2017-12-18 08:17:50.812 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'auditEventsEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=auditEventsEndpoint]
+[m[32m2017-12-18 08:17:50.858 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'requestMappingEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=requestMappingEndpoint]
+[m[32m2017-12-18 08:17:50.881 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'environmentEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=environmentEndpoint]
+[m[32m2017-12-18 08:17:50.891 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'healthEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=healthEndpoint]
+[m[32m2017-12-18 08:17:50.898 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'beansEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=beansEndpoint]
+[m[32m2017-12-18 08:17:50.905 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'infoEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=infoEndpoint]
+[m[32m2017-12-18 08:17:50.911 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'loggersEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=loggersEndpoint]
+[m[32m2017-12-18 08:17:50.923 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'metricsEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=metricsEndpoint]
+[m[32m2017-12-18 08:17:50.929 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'traceEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=traceEndpoint]
+[m[32m2017-12-18 08:17:50.935 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'dumpEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=dumpEndpoint]
+[m[32m2017-12-18 08:17:50.940 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'autoConfigurationReportEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=autoConfigurationReportEndpoint]
+[m[32m2017-12-18 08:17:50.945 WAT [main] o.s.b.a.e.j.EndpointMBeanExporter INFO : Located managed bean 'configurationPropertiesReportEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=configurationPropertiesReportEndpoint]
+[m[32m2017-12-18 08:17:50.949 WAT [main] o.s.c.s.DefaultLifecycleProcessor INFO : Starting beans in phase 2147483647
+[m[32m2017-12-18 08:17:51.563 WAT [main] o.s.b.c.e.t.TomcatEmbeddedServletContainer INFO : Tomcat started on port(s): 8084 (http)
+[m[32m2017-12-18 08:17:51.574 WAT [main] c.b.a.Application INFO : Started Application in 11.873 seconds (JVM running for 33.744)
+[m[32m2017-12-18 08:18:15.063 WAT [main] c.b.i.NoteControllerIntegrationTest DEBUG: {
+    "id": 401,
+    "entityType": "PROJET",
+    "entityId": 7,
+    "noteType": "ONE",
+    "dateCreation": 1513581492507,
+    "dateMiseAJour": 1511907379
+}
+[mFrameworkServlet 'dispatcherServlet': initialization completed in 72 ms
+[m[33m2017-12-18 08:19:33.853 WAT [http-nio-8084-exec-4] o.s.w.s.PageNotFound WARN : Request method 'PUT' not supported
+[m[33m2017-12-18 08:19:34.566 WAT [http-nio-8084-exec-6] o.s.w.s.PageNotFound WARN : Request method 'DELETE' not supported
+[m[32m2017-12-18 09:07:02.363 WAT [Thread-3] o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext INFO : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6ffb06b5: startup date [Mon Dec 18 08:17:41 WAT 2017]; root of context hierarchy
+[m[32m2017-12-18 09:07:02.368 WAT [Thread-3] o.s.c.s.DefaultLifecycleProcessor INFO : Stopping beans in phase 2147483647
+[m[32m2017-12-18 09:07:02.379 WAT [Thread-3] o.s.c.s.DefaultLifecycleProcessor INFO : Stopping beans in phase 0
+[m[32m2017-12-18 09:07:02.379 WAT [Thread-3] o.s.b.a.e.j.EndpointMBeanExporter INFO : Unregistering JMX-exposed beans on shutdown
+[m[32m2017-12-18 09:07:02.380 WAT [Thread-3] o.s.b.a.e.j.EndpointMBeanExporter INFO : Unregistering JMX-exposed beans
+[m[32m2017-12-18 09:07:02.380 WAT [Thread-3] o.s.j.e.a.AnnotationMBeanExporter INFO : Unregistering JMX-exposed beans on shutdown
+[montrollerIntegrationTest DEBUG: {
+    "entityId": 2,
+    "entityType": "PROJET",
+    "moyenne": "NaN",
+    "noteOneCounts": 0,
+    "noteTwoCounts": 0,
+    "noteThreeCounts": 0,
+    "noteFourCounts": 0,
+    "noteFiveCounts": 0
+}
+[m[32m2017-12-18 09:03:51.521 WAT [main] c.b.i.NoteControllerIntegrationTest DEBUG: {
+    "id": 402,
+    "entityType": "PROJET",
+    "entityId": 7,
+    "noteType": "ONE",
+    "dateCreation": 1513584231233,
+    "dateMiseAJour": 1511907379
+}
+[m[32m2017-12-18 09:03:51.661 WAT [main] c.b.i.NoteControllerIntegrationTest DEBUG: {
+    "id": 402,
+    "entityType": "PROJET",
+    "entityId": 7,
+    "noteType": "ONE",
+    "dateCreation": 1513584231233,
+    "dateMiseAJour": 1511907379
+}
+[m[32m2017-12-18 09:03:51.785 WAT [main] c.b.i.NoteControllerIntegrationTest DEBUG: {
+    "entityId": 2,
+    "entityType": "PROJET",
+    "moyenne": "NaN",
+    "noteOneCounts": 0,
+    "noteTwoCounts": 0,
+    "noteThreeCounts": 0,
+    "noteFourCounts": 0,
+    "noteFiveCounts": 0
+}
+[m[32m2017-12-18 09:07:37.436 WAT [main] c.b.i.NoteControllerIntegrationTest DEBUG: {
+    "timestamp": 1513584385373,
+    "status": 500,
+    "error": "Internal Server Error",
+    "exception": "java.lang.IndexOutOfBoundsException",
+    "message": "Index: 0, Size: 0",
+    "path": "/note/notes/0"
+}
+[m[32m2017-12-18 09:07:39.676 WAT [main] c.b.i.NoteControllerIntegrationTest DEBUG: {
+    "entityId": 2,
+    "entityType": "PROJET",
+    "moyenne": "NaN",
+    "noteOneCounts": 0,
+    "noteTwoCounts": 0,
+    "noteThreeCounts": 0,
+    "noteFourCounts": 0,
+    "noteFiveCounts": 0
+}
+[m

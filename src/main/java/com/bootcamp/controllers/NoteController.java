@@ -18,6 +18,10 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ *
+ * @author Bello
+ */
 @RestController("NoteController")
 @RequestMapping("/notes")
 @Api(value = "Note API", description = "Note API")
@@ -30,25 +34,27 @@ public class NoteController {
     @Autowired
     HttpServletRequest request;
 
+    /**
+     * Insert a note
+     *
+     * @param note
+     * @return the created note id
+     */
     @RequestMapping(method = RequestMethod.POST)
     @ApiVersions({"1.0"})
     @ApiOperation(value = "Create a new note", notes = "Create a new note")
-//    @CrossOrigin(origins = "*")
-    public ResponseEntity<Integer> create(@RequestBody @Valid Note note) {
-
-        HttpStatus httpStatus = null;
-
-        int id = -1;
-        try {
-            id = noteService.create(note);
-            httpStatus = HttpStatus.OK;
-        } catch (SQLException ex) {
-            Logger.getLogger(NoteController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return new ResponseEntity<Integer>(id, httpStatus);
+    public ResponseEntity<Note> create(@RequestBody @Valid Note note) throws Exception {
+            Note noter = noteService.create( note );
+        return new ResponseEntity<>(noter, HttpStatus.OK);
     }
 
-   /* @RequestMapping(method = RequestMethod.GET, value = "/{id}")
+    /**
+     * Get a note knowing its id
+     *
+     * @param id
+     * @return note
+     */
+    @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     @ApiVersions({"1.0"})
     @ApiOperation(value = "Read a notes", notes = "Read a note")
     @CrossOrigin(origins = "*")
@@ -66,8 +72,16 @@ public class NoteController {
         }
 
         return new ResponseEntity<Note>(note, httpStatus);
-    }*/
+    }
 
+    /**
+     * Get all the notes of the specified entity (the average note and the count
+     * note by type)
+     *
+     * @param entityId
+     * @param entityType
+     * @return noteWS
+     */
     @RequestMapping(method = RequestMethod.GET, value = "/{entityType}/{entityId}")
     @ApiVersions({"1.0"})
     @ApiOperation(value = "Get all notes of an entity", notes = "Get all notes of an entity")

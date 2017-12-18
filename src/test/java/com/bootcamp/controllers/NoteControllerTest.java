@@ -54,7 +54,7 @@ public class NoteControllerTest {
 
 
     @Test
-    public void readByEntity() throws Exception{
+    public void readByEntityTest() throws Exception{
         NoteWS noteWS = new NoteWS();
         noteWS.setNoteFourCounts(0);
         noteWS.setEntityId(7);
@@ -105,10 +105,10 @@ public class NoteControllerTest {
     }
 */
     @Test
-    public void CreateNote() throws Exception{
+    public void CreateNoteTest() throws Exception{
         Note note = getNote(2);
 
-        when(noteService.create(note)).thenReturn(2);
+        when(noteService.create(note)).thenReturn(note);
 
         RequestBuilder requestBuilder =
                 post("/notes")

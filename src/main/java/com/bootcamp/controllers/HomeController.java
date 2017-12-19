@@ -22,6 +22,6 @@ public class HomeController {
      */
     @RequestMapping("/")
     public String index() {
-        return index();
+        return "index";
     }
 }

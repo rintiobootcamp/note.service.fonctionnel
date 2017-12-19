@@ -48,7 +48,7 @@ public class NoteControllerIntegrationTest {
      *The Base URI of note fonctionnal service,
      * it can be change with the online URI of this service.
      */
-    private String BASE_URI = "http://165.227.69.188:8084/note";
+    private String BASE_URI = "http://localhost:8084/note";
 
     /**
      * The path of the Note controller, according to this controller implementation

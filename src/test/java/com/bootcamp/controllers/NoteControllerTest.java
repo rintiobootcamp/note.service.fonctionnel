@@ -56,9 +56,8 @@ public class NoteControllerTest {
     @Test
     public void readByEntityTest() throws Exception{
         NoteWS noteWS = new NoteWS();
+        noteWS.setAllNotesCount(0);
         noteWS.setNoteFourCounts(0);
-        noteWS.setEntityId(7);
-        noteWS.setEntityType(EntityType.PROJET);
         noteWS.setNoteFiveCounts(0);
         noteWS.setNoteThreeCounts(0);
         noteWS.setNoteOneCounts(3);

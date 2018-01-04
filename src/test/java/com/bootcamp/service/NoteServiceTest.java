@@ -150,21 +150,6 @@ public class NoteServiceTest {
         return file;
     }
 
-    public List<Projet> getProjectsFromJson() throws Exception {
-        //TestUtils testUtils = new TestUtils();
-        File dataFile = getFile("data-json" + File.separator + "projets.json");
-
-        String text = Files.toString(new File(dataFile.getAbsolutePath()), Charsets.UTF_8);
-
-        Type typeOfObjectsListNew = new TypeToken<List<Projet>>() {
-        }.getType();
-        List<Projet> projets = GsonUtils.getObjectFromJson(text, typeOfObjectsListNew);
-
-        return projets;
-    }
-
-
-
     public List<Note> loadDataNoteFromJsonFile() throws Exception {
         //TestUtils testUtils = new TestUtils();
         File dataFile = getFile("data-json" + File.separator + "notes.json");

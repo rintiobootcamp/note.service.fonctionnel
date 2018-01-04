@@ -101,4 +101,31 @@ public class NoteController {
 
         return new ResponseEntity<NoteWS>(noteWS, httpStatus);
     }
+
+    /**
+     * Get all the notes of the specified entityType (the average note and the count
+     * note by type)
+     *
+     * @param entityType
+     * @return noteWS
+     */
+    @RequestMapping(method = RequestMethod.GET, value = "/stats/{entityType}/")
+    @ApiVersions({"1.0"})
+    @ApiOperation(value = "Get all notes of an entity", notes = "Get all notes of an entity")
+    @CrossOrigin(origins = "*")
+    public ResponseEntity<NoteWS> readByEntity(@PathVariable("entityType") String entityType) {
+        EntityType entite = EntityType.valueOf(entityType);
+        NoteWS noteWS = new NoteWS();
+        HttpStatus httpStatus = null;
+
+        try {
+            noteWS = noteService.getNotes(entite);
+            httpStatus = HttpStatus.OK;
+        } catch (SQLException ex) {
+            Logger.getLogger(NoteController.class.getName()).log(Level.SEVERE, null, ex);
+            httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+        }
+
+        return new ResponseEntity<NoteWS>(noteWS, httpStatus);
+    }
 }

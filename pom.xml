@@ -13,8 +13,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <!--<config.home>/home/config/dev</config.home>-->
-        <config.home>C:\config\dev</config.home>
+        <config.home>/home/config/dev</config.home>
+        <!--<config.home>C:\config\dev</config.home>-->
     </properties>
 
     <dependencies>
@@ -246,10 +246,6 @@
                         <directory>src/main/resources</directory>
                         <filtering>true</filtering>
                     </resource>
-                    <resource>
-                        <directory>${config.home}</directory>
-                    </resource>
-
                 </resources>
             </build>
         </profile>
@@ -260,13 +256,8 @@
             <build>
                 <resources>
                     <resource>
-                        <directory>src/main/resources</directory>
-                        <filtering>true</filtering>
-                    </resource>
-                    <resource>
                         <directory>${config.home}</directory>
                     </resource>
-
                 </resources>
             </build>
         </profile>

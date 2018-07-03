@@ -9,11 +9,15 @@ import com.bootcamp.commons.models.Criterias;
 import com.bootcamp.commons.models.Rule;
 import com.bootcamp.commons.ws.usecases.pivotone.NoteWS;
 import com.bootcamp.crud.NoteCRUD;
+import com.bootcamp.entities.Media;
 import com.bootcamp.entities.Note;
 //import org.eclipse.persistence.internal.helper.Helper;
+import com.rintio.elastic.client.ElasticClient;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -57,7 +61,7 @@ public class NoteService implements DatabaseConstants {
      * @return note
      * @throws SQLException
      */
-    public Note delete(int id) throws SQLException {
+    public Note delete(int id) throws Exception {
         Note note = read(id);
         NoteCRUD.delete(note);
         return note;
@@ -70,11 +74,23 @@ public class NoteService implements DatabaseConstants {
      * @return note
      * @throws SQLException
      */
-    public Note read(int id) throws SQLException {
-        Criterias criterias = new Criterias();
-        criterias.addCriteria(new Criteria("id", "=", id));
-        List<Note> notes = NoteCRUD.read(criterias);
-        return notes.get(0);
+    public Note read(int id) throws Exception {
+//        Criterias criterias = new Criterias();
+//        criterias.addCriteria(new Criteria("id", "=", id));
+//        List<Note> notes = NoteCRUD.read(criterias);
+//        return notes.get(0);
+        return getAllNoteIndex().stream().filter(t->t.getId()==id).findFirst().get();
+    }
+
+    public List<Note> getAllNoteIndex() throws Exception{
+        ElasticClient elasticClient = new ElasticClient();
+        List<Object> objects = elasticClient.getAllObject("notes");
+        ModelMapper modelMapper = new ModelMapper();
+        List<Note> rest = new ArrayList<>();
+        for(Object obj:objects){
+            rest.add(modelMapper.map(obj,Note.class));
+        }
+        return rest;
     }
 
 
@@ -88,7 +104,7 @@ public class NoteService implements DatabaseConstants {
      * @return
      * @throws SQLException
      */
-    public NoteWS getNotes(int entityId, EntityType entityType) throws SQLException {
+    public NoteWS getNotes(int entityId, EntityType entityType) throws Exception {
         NoteWS noteWS = new NoteWS();
 
         noteWS.setAllNotesCount(noteHelper.getNotesCountsByEntity(entityId, entityType));
@@ -110,7 +126,7 @@ public class NoteService implements DatabaseConstants {
      * @return
      * @throws SQLException
      */
-    public NoteWS getNotes(EntityType entityType) throws SQLException {
+    public NoteWS getNotes(EntityType entityType) throws Exception {
         NoteWS noteWS = new NoteWS();
 
         noteWS.setAllNotesCount(noteHelper.getNotesCountsByEntity(entityType));

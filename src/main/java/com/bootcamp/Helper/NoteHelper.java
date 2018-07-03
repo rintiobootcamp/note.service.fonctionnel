@@ -7,9 +7,11 @@ import com.bootcamp.commons.models.Criterias;
 import com.bootcamp.commons.models.Rule;
 import com.bootcamp.crud.NoteCRUD;
 import com.bootcamp.entities.Note;
+import com.bootcamp.services.NoteService;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class NoteHelper {
 
@@ -71,12 +73,12 @@ public class NoteHelper {
      * @return count
      * @throws SQLException
      */
-    public int getNotesCountsByEntity(int entityId, EntityType entityType) throws SQLException {
+    public int getNotesCountsByEntity(int entityId, EntityType entityType) throws Exception {
         int count = 0;
         Criterias criterias = new Criterias();
         criterias.addCriteria(new Criteria(new Rule("entityId", "=", entityId), "AND"));
         criterias.addCriteria(new Criteria(new Rule("entityType", "=", entityType), null));
-        count = NoteCRUD.read(criterias).size();
+        count =(int) new NoteService().getAllNoteIndex().stream().filter(t->t.getEntityType().equals(entityType)).filter(t->t.getEntityId()==entityId).count();
         return count;
     }
 
@@ -87,12 +89,12 @@ public class NoteHelper {
      * @return
      * @throws SQLException
      */
-    public double getMoyenneByEntity(EntityType entityType) throws SQLException {
+    public double getMoyenneByEntity(EntityType entityType) throws Exception {
         double moyenne = 0;
         int count = 0;
-        Criterias criterias = new Criterias();
-        criterias.addCriteria(new Criteria(new Rule("entityType", "=", entityType), null));
-        List<Note> notes = NoteCRUD.read(criterias);
+//        Criterias criterias = new Criterias();
+//        criterias.addCriteria(new Criteria(new Rule("entityType", "=", entityType), null));
+        List<Note> notes = new NoteService().getAllNoteIndex().stream().filter(t->t.getEntityType().equals(entityType)).collect(Collectors.toList());
         for (Note note : notes) {
             NoteType noteType = NoteType.valueOf(note.getNoteType());
             int n = noteType.ordinal() + 1;
@@ -115,12 +117,12 @@ public class NoteHelper {
      * @return
      * @throws SQLException
      */
-    public int getNoteCountsByType(EntityType entityType, NoteType noteType) throws SQLException {
+    public int getNoteCountsByType(EntityType entityType, NoteType noteType) throws Exception {
         int count = 0;
-        Criterias criterias = new Criterias();
-        criterias.addCriteria(new Criteria(new Rule("entityType", "=", entityType), "AND"));
-        criterias.addCriteria(new Criteria(new Rule("noteType", "=", noteType), null));
-        count = NoteCRUD.read(criterias).size();
+//        Criterias criterias = new Criterias();
+//        criterias.addCriteria(new Criteria(new Rule("entityType", "=", entityType), "AND"));
+//        criterias.addCriteria(new Criteria(new Rule("noteType", "=", noteType), null));
+        count = (int) new NoteService().getAllNoteIndex().stream().filter(t->t.getEntityType().equals(entityType)).filter(t->t.getNoteType().equals(noteType)).count();
         return count;
     }
 
@@ -131,11 +133,11 @@ public class NoteHelper {
      * @return count
      * @throws SQLException
      */
-    public int getNotesCountsByEntity(EntityType entityType) throws SQLException {
+    public int getNotesCountsByEntity(EntityType entityType) throws Exception {
         int count = 0;
-        Criterias criterias = new Criterias();
-        criterias.addCriteria(new Criteria(new Rule("entityType", "=", entityType), null));
-        count = NoteCRUD.read(criterias).size();
+//        Criterias criterias = new Criterias();
+//        criterias.addCriteria(new Criteria(new Rule("entityType", "=", entityType), null));
+        count = (int)new NoteService().getAllNoteIndex().stream().filter(t->t.getEntityType().equals(entityType)).count();
         return count;
     }
 }

@@ -58,7 +58,7 @@ public class NoteController {
     @ApiVersions({"1.0"})
     @ApiOperation(value = "Read a notes", notes = "Read a note")
     @CrossOrigin(origins = "*")
-    public ResponseEntity<Note> read(@PathVariable(name = "id") int id) {
+    public ResponseEntity<Note> read(@PathVariable(name = "id") int id) throws Exception{
 
         Note note = new Note();
         HttpStatus httpStatus = null;
@@ -86,7 +86,7 @@ public class NoteController {
     @ApiVersions({"1.0"})
     @ApiOperation(value = "Get all notes of an entity", notes = "Get all notes of an entity")
     @CrossOrigin(origins = "*")
-    public ResponseEntity<NoteWS> readByEntity(@PathVariable("entityId") int entityId, @PathVariable("entityType") String entityType) {
+    public ResponseEntity<NoteWS> readByEntity(@PathVariable("entityId") int entityId, @PathVariable("entityType") String entityType) throws Exception {
         EntityType entite = EntityType.valueOf(entityType);
         NoteWS noteWS = new NoteWS();
         HttpStatus httpStatus = null;
@@ -113,7 +113,7 @@ public class NoteController {
     @ApiVersions({"1.0"})
     @ApiOperation(value = "Get all notes of an entity", notes = "Get all notes of an entity")
     @CrossOrigin(origins = "*")
-    public ResponseEntity<NoteWS> readByEntity(@PathVariable("entityType") String entityType) {
+    public ResponseEntity<NoteWS> readByEntity(@PathVariable("entityType") String entityType) throws Exception{
         EntityType entite = EntityType.valueOf(entityType);
         NoteWS noteWS = new NoteWS();
         HttpStatus httpStatus = null;

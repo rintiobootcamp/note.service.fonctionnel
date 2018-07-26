@@ -16,6 +16,7 @@ import com.rintio.elastic.client.ElasticClient;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +28,12 @@ import java.util.List;
 public class NoteService implements DatabaseConstants {
 
     NoteHelper noteHelper = new NoteHelper();
+    ElasticClient elasticClient ;
+
+    @PostConstruct
+    public void init(){
+        elasticClient = new ElasticClient();
+    }
 
     /**
      * Insert a note in the database
@@ -35,9 +42,10 @@ public class NoteService implements DatabaseConstants {
      * @return the note id
      * @throws SQLException
      */
-    public Note create(Note note) throws SQLException {
+    public Note create(Note note) throws Exception {
         note.setDateCreation(System.currentTimeMillis());
         NoteCRUD.create(note);
+        createAllIndexNote();
         return note;
     }
 
@@ -48,9 +56,10 @@ public class NoteService implements DatabaseConstants {
      * @return id
      * @throws SQLException
      */
-    public int update(Note note) throws SQLException {
+    public int update(Note note) throws Exception {
         note.setDateCreation(System.currentTimeMillis());
         NoteCRUD.update(note);
+        createAllIndexNote();
         return note.getId();
     }
 
@@ -64,6 +73,7 @@ public class NoteService implements DatabaseConstants {
     public Note delete(int id) throws Exception {
         Note note = read(id);
         NoteCRUD.delete(note);
+        createAllIndexNote();
         return note;
     }
 
@@ -138,5 +148,24 @@ public class NoteService implements DatabaseConstants {
         noteWS.setNoteFiveCounts(noteHelper.getNoteCountsByType(entityType, NoteType.CINQ));
 
         return noteWS;
+    }
+
+
+    public List<Note> getAllNote() throws Exception{
+        ElasticClient elasticClient = new ElasticClient();
+        List<Object> objects = elasticClient.getAllObject("notes");
+        ModelMapper modelMapper = new ModelMapper();
+        List<Note> rest = new ArrayList<>();
+        for(Object obj:objects){
+            rest.add(modelMapper.map(obj,Note.class));
+        }
+        return rest;
+    }
+    public boolean createAllIndexNote()throws Exception{
+        List<Note> notes = NoteCRUD.read();
+        for (Note note : notes){
+            elasticClient.creerIndexObjectNative("notes","note",note,note.getId());
+        }
+        return true;
     }
 }

@@ -34,6 +34,15 @@ public class NoteController {
     @Autowired
     HttpServletRequest request;
 
+    @RequestMapping(value = "/elasticdata",method = RequestMethod.GET)
+    @ApiVersions({"1.0"})
+    @ApiOperation(value = "Create Elasticsearch indexes", notes = "Create Elasticsearch indexes")
+    public ResponseEntity<String> createIndexs() throws Exception {
+        String retour = "NOT DONE";
+        if (noteService.createAllIndexNote())
+            retour = "DONE";
+        return new ResponseEntity<>(retour, HttpStatus.OK);
+    }
     /**
      * Insert a note
      *

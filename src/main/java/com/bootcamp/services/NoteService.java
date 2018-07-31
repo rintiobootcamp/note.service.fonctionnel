@@ -29,10 +29,18 @@ public class NoteService implements DatabaseConstants {
 
     NoteHelper noteHelper = new NoteHelper();
     ElasticClient elasticClient ;
+    private List<Note> notes;
 
     @PostConstruct
     public void init(){
+        this.notes = new ArrayList<>();
         elasticClient = new ElasticClient();
+    }
+
+    public List<Note> lireNote() throws Exception{
+        if(this.notes.isEmpty())
+            getAllNoteIndex();
+        return this.notes;
     }
 
     /**
@@ -89,7 +97,7 @@ public class NoteService implements DatabaseConstants {
 //        criterias.addCriteria(new Criteria("id", "=", id));
 //        List<Note> notes = NoteCRUD.read(criterias);
 //        return notes.get(0);
-        return getAllNoteIndex().stream().filter(t->t.getId()==id).findFirst().get();
+        return lireNote().stream().filter(t->t.getId()==id).findFirst().get();
     }
 
     public List<Note> getAllNoteIndex() throws Exception{
@@ -100,6 +108,7 @@ public class NoteService implements DatabaseConstants {
         for(Object obj:objects){
             rest.add(modelMapper.map(obj,Note.class));
         }
+        this.notes= rest;
         return rest;
     }
 
@@ -151,16 +160,16 @@ public class NoteService implements DatabaseConstants {
     }
 
 
-    public List<Note> getAllNote() throws Exception{
-        ElasticClient elasticClient = new ElasticClient();
-        List<Object> objects = elasticClient.getAllObject("notes");
-        ModelMapper modelMapper = new ModelMapper();
-        List<Note> rest = new ArrayList<>();
-        for(Object obj:objects){
-            rest.add(modelMapper.map(obj,Note.class));
-        }
-        return rest;
-    }
+//    public List<Note> getAllNote() throws Exception{
+//        ElasticClient elasticClient = new ElasticClient();
+//        List<Object> objects = elasticClient.getAllObject("notes");
+//        ModelMapper modelMapper = new ModelMapper();
+//        List<Note> rest = new ArrayList<>();
+//        for(Object obj:objects){
+//            rest.add(modelMapper.map(obj,Note.class));
+//        }
+//        return rest;
+//    }
     public boolean createAllIndexNote()throws Exception{
         List<Note> notes = NoteCRUD.read();
         for (Note note : notes){

@@ -19,10 +19,18 @@ import java.util.stream.Collectors;
 
 public class NoteHelper {
     ElasticClient elasticClient ;
-
+    private List<Note> notes;
     @PostConstruct
     public void init(){
+        this.notes = new ArrayList<>();
         elasticClient = new ElasticClient();
+    }
+
+
+    public List<Note> lireNote() throws Exception{
+        if(this.notes.isEmpty())
+            getAllNote();
+        return this.notes;
     }
 
     public List<Note> getAllNote() throws Exception{
@@ -33,6 +41,7 @@ public class NoteHelper {
         for(Object obj:objects){
             rest.add(modelMapper.map(obj,Note.class));
         }
+        this.notes = rest;
         return rest;
     }
     public boolean createAllIndexNote()throws Exception{
@@ -58,7 +67,7 @@ public class NoteHelper {
 //        criterias.addCriteria(new Criteria(new Rule("entityId", "=", entityId), "AND"));
 //        criterias.addCriteria(new Criteria(new Rule("entityType", "=", entityType), null));
 //        List<Note> notes = NoteCRUD.read(criterias);
-        List<Note> notes = getAllNote().stream().filter(t->t.getEntityType().equalsIgnoreCase(entityType.toString()) && t.getEntityId()==entityId).collect(Collectors.toList());
+        List<Note> notes = lireNote().stream().filter(t->t.getEntityType().equalsIgnoreCase(entityType.toString()) && t.getEntityId()==entityId).collect(Collectors.toList());
         for (Note note : notes) {
             NoteType noteType = NoteType.valueOf(note.getNoteType());
             int n = noteType.ordinal() + 1;
@@ -91,7 +100,7 @@ public class NoteHelper {
 //        criterias.addCriteria(new Criteria(new Rule("entityType", "=", entityType), "AND"));
 //        criterias.addCriteria(new Criteria(new Rule("noteType", "=", noteType), null));
 //        count = NoteCRUD.read(criterias).size();
-        count = getAllNote().stream().filter(t->t.getEntityType().equalsIgnoreCase(entityType.toString())).collect(Collectors.toList())
+        count = lireNote().stream().filter(t->t.getEntityType().equalsIgnoreCase(entityType.toString())).collect(Collectors.toList())
                 .stream().filter(o->o.getNoteType().equalsIgnoreCase(noteType.toString())).collect(Collectors.toList())
                 .stream().filter(u->u.getEntityId()==entityId).collect(Collectors.toList()).size();
         return count;
@@ -110,7 +119,7 @@ public class NoteHelper {
 //        Criterias criterias = new Criterias();
 //        criterias.addCriteria(new Criteria(new Rule("entityId", "=", entityId), "AND"));
 //        criterias.addCriteria(new Criteria(new Rule("entityType", "=", entityType), null));
-        count =new NoteService().getAllNoteIndex().stream().filter(t->t.getEntityType().equalsIgnoreCase(entityType.toString())).collect(Collectors.toList())
+        count = lireNote().stream().filter(t->t.getEntityType().equalsIgnoreCase(entityType.toString())).collect(Collectors.toList())
                 .stream().filter(u->u.getEntityId()==entityId).collect(Collectors.toList()).size();
         return count;
     }
@@ -127,7 +136,7 @@ public class NoteHelper {
         int count = 0;
 //        Criterias criterias = new Criterias();
 //        criterias.addCriteria(new Criteria(new Rule("entityType", "=", entityType), null));
-        List<Note> notes = new NoteService().getAllNoteIndex().stream().filter(t->t.getEntityType().equalsIgnoreCase(entityType.toString())).collect(Collectors.toList());
+        List<Note> notes = lireNote().stream().filter(t->t.getEntityType().equalsIgnoreCase(entityType.toString())).collect(Collectors.toList());
         for (Note note : notes) {
             NoteType noteType = NoteType.valueOf(note.getNoteType());
             int n = noteType.ordinal() + 1;
@@ -155,7 +164,7 @@ public class NoteHelper {
 //        Criterias criterias = new Criterias();
 //        criterias.addCriteria(new Criteria(new Rule("entityType", "=", entityType), "AND"));
 //        criterias.addCriteria(new Criteria(new Rule("noteType", "=", noteType), null));
-        count = (int) new NoteService().getAllNoteIndex().stream().filter(t->t.getEntityType().equalsIgnoreCase(entityType.toString())).collect(Collectors.toList())
+        count = (int) lireNote().stream().filter(t->t.getEntityType().equalsIgnoreCase(entityType.toString())).collect(Collectors.toList())
                 .stream().filter(r->r.getNoteType().equalsIgnoreCase(noteType.toString())).collect(Collectors.toList()).size();
         return count;
     }
@@ -171,7 +180,7 @@ public class NoteHelper {
         int count = 0;
 //        Criterias criterias = new Criterias();
 //        criterias.addCriteria(new Criteria(new Rule("entityType", "=", entityType), null));
-        count = (int)new NoteService().getAllNoteIndex().stream().filter(t->t.getEntityType().equalsIgnoreCase(entityType.toString())).count();
+        count = (int)lireNote().stream().filter(t->t.getEntityType().equalsIgnoreCase(entityType.toString())).count();
         return count;
     }
 }
